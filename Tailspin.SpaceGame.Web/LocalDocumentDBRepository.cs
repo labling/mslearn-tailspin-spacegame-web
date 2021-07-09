@@ -18,6 +18,15 @@ namespace TailSpin.SpaceGame.Web
         {
             // Serialize the items from the provided JSON document.
             _items = JsonSerializer.Deserialize<List<T>>(File.ReadAllText(fileName));
+<<<<<<< HEAD
+=======
+        }
+
+        public LocalDocumentDBRepository(Stream stream)
+        {
+            // Serialize the items from the provided JSON document.
+            _items = JsonSerializer.Deserialize<List<T>>(new StreamReader(stream).ReadToEnd());
+>>>>>>> 0cb5b08b9a2967effa14e9bf6ca2542c363c2515
         }
 
         /// <summary>
@@ -55,7 +64,7 @@ namespace TailSpin.SpaceGame.Web
                 .Where(queryPredicate) // filter
                 .OrderByDescending(orderDescendingPredicate) // sort
                 .Skip(page * pageSize) // find page
-                .Take(pageSize) // take items
+                .Take(pageSize - 1) // take items
                 .AsEnumerable(); // make enumeratable
 
             return Task<IEnumerable<T>>.FromResult(result);
