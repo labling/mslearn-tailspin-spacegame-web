@@ -1,20 +1,14 @@
-<<<<<<< HEAD
+
 # ASP.NET Core (.NET Framework)
 # Build and test ASP.NET Core projects targeting the full .NET Framework.
 # Add steps that publish symbols, save build artifacts, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
 
-=======
->>>>>>> 0cb5b08b9a2967effa14e9bf6ca2542c363c2515
 trigger:
 - '*'
 
 pool:
-<<<<<<< HEAD
   vmImage: 'windows-latest'
-=======
-  vmImage: 'ubuntu-20.04'
->>>>>>> 0cb5b08b9a2967effa14e9bf6ca2542c363c2515
   demands:
   - npm
 
@@ -58,8 +52,7 @@ steps:
     projects: '**/*.csproj'
 
 - task: DotNetCoreCLI@2
-<<<<<<< HEAD
-=======
+
   displayName: 'Install .NET Core tools from local manifest'
   inputs:
     command: custom
@@ -88,7 +81,6 @@ steps:
     summaryFileLocation: '$(Build.SourcesDirectory)/**/coverage.cobertura.xml'
 
 - task: DotNetCoreCLI@2
->>>>>>> 0cb5b08b9a2967effa14e9bf6ca2542c363c2515
   displayName: 'Publish the project - $(buildConfiguration)'
   inputs:
     command: 'publish'
@@ -99,8 +91,5 @@ steps:
 
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
-<<<<<<< HEAD
   condition: succeeded()
-=======
-  condition: succeeded()
->>>>>>> 0cb5b08b9a2967effa14e9bf6ca2542c363c2515
+
