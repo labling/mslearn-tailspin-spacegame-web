@@ -1,14 +1,8 @@
-
-# ASP.NET Core (.NET Framework)
-# Build and test ASP.NET Core projects targeting the full .NET Framework.
-# Add steps that publish symbols, save build artifacts, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
-
 trigger:
 - '*'
 
 pool:
-  vmImage: 'windows-latest'
+  vmImage: 'ubuntu-20.04'
   demands:
   - npm
 
@@ -52,7 +46,7 @@ steps:
     projects: '**/*.csproj'
 
 - task: DotNetCoreCLI@2
-  displayName: 'Install .NET Core tools from local manifest'
+  displayName: 'Install .NET tools from local manifest'
   inputs:
     command: custom
     custom: tool
@@ -91,4 +85,3 @@ steps:
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
   condition: succeeded()
-
